@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-12 row maxheghit">
+      <span class="h6 text-secondary col-12">
+        <span class="text-primary">
+            <i class="fas fa-arrow-circle-right"></i>
+        </span>
+        ship to your delivery address
+      </span>
+
+      <div class="h5 text-secondary col-12 shadow-sm p-3 mb-5 bg-white rounded">
+          Delivery address
+          <div class ='h6 text-dark mt-3' *ngIf='authServ.user$ as user'>
+            <span class="font-weight-bold"> Name : </span> {{user.displayName}} <br>
+            <span class="font-weight-bold"> Country  : </span> {{user.country}} <br>
+            <span class="font-weight-bold"> City : </span> {{user.city}} <br>
+            <span class="font-weight-bold"> Area : </span> {{user.area}} <br>
+            <span class="font-weight-bold"> Street Name/No: </span> {{user.streetName}} <br>
+            <span class="font-weight-bold"> Building Name/No : </span> {{user.buildingName}} <br>
+            <span class="font-weight-bold"> Mobile : </span> {{user.mobile}} <br>
+          </div>
+     </div>
+    </div>
+    <div class="col-lg-4 col-12" >
+
+      <div class="container">
+
+        <div class="row">
+          <h4 class="font-weight-bold mb-2"> SHOPPING CART </h4>
+            <div class="col-12 shopping shadow-sm p-3 bg-white" *ngIf='cart$ | async as cart'>
+               <div class="col-lg-12 col-md-6 col-12">
+                  <div class="row mb-3 shadow p-1 mb-1 bg-white rounded " *ngFor="let productID of cart.productIds ;let i = index" >
+                  
+                      <div class="col-3 imdiv row p-2 ml-1 justify-content-center ">
+                          <img class=" p-1" [src]="cart.item[productID].product.imageUrl">
+                      </div>
+  
+                      <div class="col-8 font-weight-bold ">
+                          <div>
+                              <span *ngIf='cart.item[productID].product.title'>{{cart.item[productID].product.title}} ,  </span>
+                              <span *ngIf='cart.item[productID].product.storageCapacity'>{{cart.item[productID].product.storageCapacity}} ,  </span>
+                              <span *ngIf='cart.item[productID].product.networkTechnology'> {{cart.item[productID].product.networkTechnology}} , </span>
+                              <span *ngIf='cart.item[productID].product.numberSIM'> {{cart.item[productID].product.numberSIM}} , </span>
+                              <span *ngIf='cart.item[productID].product.Processor'>  {{cart.item[productID].product.Processor}} , </span>
+                              <span *ngIf='cart.item[productID].product.Display'>  {{cart.item[productID].product.Display}} , </span>
+                              <span *ngIf='cart.item[productID].product.HardDisk'> {{cart.item[productID].product.HardDisk}} , </span>
+                              <span *ngIf='cart.item[productID].product.memoryRam'> {{cart.item[productID].product.memoryRam}} , </span>
+                              <span *ngIf='cart.item[productID].product.operatingSystem'> {{cart.item[productID].product.operatingSystem}} </span>
+                              <span *ngIf='cart.item[productID].product.TargetedGroup'> {{cart.item[productID].product.TargetedGroup}} </span>
+                              <span *ngIf='cart.item[productID].product.DialColor'> {{cart.item[productID].product.DialColor}} Dial </span>
+                              <span *ngIf='cart.item[productID].product.BandMaterial'> {{cart.item[productID].product.BandMaterial}} Band Watch </span>
+                              <span *ngIf='cart.item[productID].product.style'> {{cart.item[productID].product.style}}</span>
+                              <span *ngIf='cart.item[productID].product.Megapixel'> {{cart.item[productID].product.Megapixel}} Megapixel </span>
+                              <span *ngIf='cart.item[productID].product.ModelNumber'> {{cart.item[productID].product.ModelNumber}} Band Watch </span>
+                              <span *ngIf='cart.item[productID].product.height'> {{cart.item[productID].product.height}}centimeters </span>
+                              <span *ngIf='cart.item[productID].product.weight'> {{cart.item[productID].product.weight}}KG </span>
+                              
+                              <span *ngIf='cart.item[productID].product.LenseMaterial'> {{cart.item[productID].product.LenseMaterial}}</span>
+                              <span *ngIf='cart.item[productID].product.FrameMaterial'> {{cart.item[productID].product.FrameMaterial}}</span>
+                              <span *ngIf='cart.item[productID].product.LensWidth'> {{cart.item[productID].product.LensWidth}} mm </span> ,
+                          </div>
+                          <div class="text-primary"> {{cart.item[productID].product.price|currency:" EGP ":"symbol"}}</div>
+                          <br>
+                          <div> QTY : {{cart.item[productID].quantatiy}}</div>
+  
+                      </div>
+                      <div style="color: red" class="dropdown-divider"></div>
+  
+                  </div>
+               </div>
+            </div>
+
+            <div class="col-12 card-header" *ngIf="cart$ |async as cart">
+                <h5 class="font-weight-bold">Grand Total</h5>
+                <div class="d-flex justify-content-end">
+                  <span class="h3 font-weight-bold text-primary">     
+                      {{cart.totalPrice|currency:" EGP ":"symbol"}}
+                    </span>
+                </div>
+            </div>
+            <button class="btn btn-success btn-block">
+                <a routerLink='/thank-you' class="nav-link text-white" (click)='addOrder()'> PLACE ORDER </a>
+            </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

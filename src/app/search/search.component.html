@@ -1,0 +1,12 @@
+
+
+
+
+<input #input id="typeahead-template" 
+type="text" class="form-control" 
+placeholder="What ara you looking for ?"
+[(ngModel)]="model" 
+[ngbTypeahead]="search" 
+[resultTemplate]="rt" 
+[inputFormatter]="formatter" 
+[resultFormatter]="formatter" (keyup.enter)="filter(input.value)"/> 

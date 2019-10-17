@@ -1,0 +1,18 @@
+<h2>
+  Shipping Adresses
+</h2>
+<div class="shadow p-3 mb-5 bg-white rounded" *ngIf='authServ.user$ as user'>
+  <h5>{{user.fristname}} {{user.lastName}}</h5>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"> {{user.area}} </li>
+    <li class="list-group-item"> {{user.streetName}} </li>
+    <li class="list-group-item"> {{user.city}} , {{user.country}} </li>
+    <li class="list-group-item"> {{user.mobile}} </li>    
+  </ul>
+  <div *ngIf='myuser'> 
+    <a class="nav-link" 
+       [routerLink]="['/edit-User-Info/',myuser.uid]" 
+       >Edit</a>
+  </div>
+</div>
+

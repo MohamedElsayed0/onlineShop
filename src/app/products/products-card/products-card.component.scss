@@ -1,0 +1,32 @@
+.border{
+    &:hover{
+        .d-flex{
+            .link{
+                visibility: visible;
+            }
+        }
+    }
+    .d-flex{
+        .image {
+            height: 150px;
+        }
+        .link {
+            width: 100%;
+            height:100%;
+            background: rgba(87, 104, 87, 0.1); 
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            visibility: hidden;
+            top: 0
+        }
+    }
+    .price {
+        font-size: 2rem;
+        span {
+            font-size: 1rem;
+        }
+    }
+}
+

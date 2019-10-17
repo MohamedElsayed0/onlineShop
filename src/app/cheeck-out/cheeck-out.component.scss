@@ -1,0 +1,15 @@
+.maxheghit{
+    max-height:300px
+}
+.shopping{
+    max-height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    .imdiv{
+        height: 100px;
+        img{
+            height: 100%;
+            width: 100%
+        }
+    }
+}

@@ -1,0 +1,221 @@
+
+
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-lg-5 col-12 mb-3">
+
+      <div class="row">
+
+        <div class="col-12">
+
+          <h4>
+
+            <span *ngIf='product.title'>{{product.title}} ,  </span>
+            <span *ngIf='product.storageCapacity'>{{product.storageCapacity}} ,  </span>
+            <span *ngIf='product.networkTechnology'> {{product.networkTechnology}} , </span>
+            <span *ngIf='product.numberSIM'> {{product.numberSIM}} , </span>
+            <span *ngIf='product.Processor'>  {{product.Processor}} , </span>
+            <span *ngIf='product.Display'>  {{product.Display}} , </span>
+            <span *ngIf='product.HardDisk'> {{product.HardDisk}} , </span>
+            <span *ngIf='product.memoryRam'> {{product.memoryRam}} , </span>
+            <span *ngIf='product.operatingSystem'> {{product.operatingSystem}} </span>
+            <span *ngIf='product.TargetedGroup'> <span class="text-secondary">For</span> {{product.TargetedGroup}} </span>
+            <span *ngIf='product.DialColor'> {{product.DialColor}} Dial </span>
+            <span *ngIf='product.BandMaterial'> {{product.BandMaterial}} Band Watch </span>
+            <span *ngIf='product.style'> {{product.style}}</span>
+            <span *ngIf='product.Megapixel'> {{product.Megapixel}} Megapixel </span>
+            <span *ngIf='product.ModelNumber'> {{product.ModelNumber}} Band Watch </span>
+            <span *ngIf='product.height'> {{product.height}}centimeters</span>             
+          </h4>
+
+        </div>
+
+        <div class="col-12 border text-center p-3 mt-3">
+
+            <div *ngIf='product.imageUrl && product.imageUrl2 ; else oneEmage' class=" col-12 row  justify-content-center " >
+                <ngb-carousel *ngIf="product" class="col-10 row justify-content-center">
+                    <ng-template ngbSlide >
+                      <div class="picsum-img-wrapper row justify-content-center" >
+                        <img  class="img-fluid col-8" [src]="product.imageUrl" alt="first slide" width="80%" >
+                      </div>
+                    </ng-template>
+                    <ng-template ngbSlide>
+                      <div class="picsum-img-wrapper row justify-content-center">
+                        <img class="img-fluid col-8" [src]="product.imageUrl2" alt="third slide" width="80%" >
+                      </div>
+                    </ng-template>
+                  </ngb-carousel>
+            </div>
+          <ng-template #oneEmage>
+              <img [src]="product.imageUrl" class="img-fluid productImage">
+
+         </ng-template>
+          
+          
+        </div>
+
+        
+      </div>
+
+    </div>
+
+    <div class="col-lg-4 col-md-6 col-12 mb-3">
+
+      <div class="row">
+           <div class="h2 text-primary col-12">
+              {{product.price}} EGP
+           </div>
+
+            <div *ngIf='product.color' class="col-12 h4 ">
+              Color : 
+              <div class="h6 col-3 text-light shadow rounded p-2 bg-secondary text-center">{{product.color}}</div>
+            </div>
+
+            <div *ngIf='product.DialColor' class="col-12 h4 ">
+                Dial Color : 
+                <div class="h6 col-3 text-light shadow rounded p-2 bg-secondary text-center">{{product.DialColor}}</div>
+            </div>
+ 
+            <div *ngIf='product.memoryRam' class="col-12 h4 ">
+                Memory RAM:
+                <div class="h6 col-3 text-light shadow rounded p-2 bg-secondary text-center">{{product.memoryRam}} GB</div>
+            </div> 
+
+            <div *ngIf='product.storageCapacity' class="col-12 h4 ">
+              Storage Capacity:
+              <div class="h6 col-3 text-light shadow rounded p-2 bg-secondary text-center">{{product. storageCapacity}} GB</div>
+           </div>
+
+          <div *ngIf='product.numberSIM' class="col-12 h4 ">
+            Number Of SIM:
+            <div class=" h6 col text-light shadow-lg rounded p-2 bg-secondary">{{product. numberSIM}}</div>
+          </div>
+
+          <div *ngIf='product.HardDisk' class="col-12 h4 ">
+              Hard Disk Capacity:
+              <div class=" h6 col text-light shadow-lg rounded p-2 bg-secondary">{{product. HardDisk}} GB</div>
+           </div>
+
+           <div *ngIf='product.bandColor' class="col-12 h4 ">
+              Band Color:
+              <div class=" h6 col text-light shadow-lg rounded p-2 bg-secondary">{{product. bandColor}}</div>
+           </div>
+          
+          <div *ngIf='product.description' class="col-12 h4 ">
+            Description:
+            <div class=" h6 col text-black shadow-lg rounded p-2">{{product.description}}</div>
+          </div>
+          <div *ngIf='product.PowerSource' class="col-12 h4 ">
+              PowerSource:
+              <div class=" h6 col text-black shadow-lg rounded p-2">{{product.PowerSource}}</div>
+            </div>
+
+            <div *ngIf='product.TotalSize' class="col-12 h4 ">
+                Total Size:
+                <div class=" h6 col text-black shadow-lg rounded p-2">{{product.TotalSize}}</div>
+              </div>
+            
+      </div>
+
+    </div>
+    
+    <div class="col-lg-3 col-md-6 col-12">
+      <button class="btn btn-success btn-block" (click)="addToCart()">
+        Add To Cart
+      </button>
+    </div>
+  </div>
+  <div >
+      <table class="table table-hover ">
+          <thead>
+            <tr>
+              <th scope="col"> Product Information</th>
+            </tr>
+          </thead>
+          <tbody>
+            <td style="font-size:14px">
+              <tr *ngIf='product.Brand' class="font-weight-bold">Brand</tr>
+              <tr *ngIf='product.numberSIM' class="font-weight-bold">Number SIM</tr>
+              <tr *ngIf='product.operatingSystem' class="font-weight-bold">Operating System</tr>
+              <tr *ngIf='product.networkTechnology' class="font-weight-bold">Network Technology</tr>
+              <tr *ngIf='product.memoryRam' class="font-weight-bold">Memory Ram</tr>
+              <tr *ngIf='product.frontCamera' class="font-weight-bold">Front Camera</tr>
+              <tr *ngIf='product.color' class="font-weight-bold">color</tr>
+              <tr *ngIf='product.backCamera' class="font-weight-bold">Back Camera</tr>
+              <tr *ngIf='product.Display' class="font-weight-bold">Display Size (Inch)</tr>
+              <tr *ngIf='product.Keyboard' class="font-weight-bold">Keyboard Languages</tr>
+              <tr *ngIf='product.Processor' class="font-weight-bold">Processor Type</tr>
+              <tr *ngIf='product.Touchscreen' class="font-weight-bold">Touch screen</tr>
+              <tr *ngIf='product.weight' class="font-weight-bold">Package weight in KGs</tr>
+              <tr *ngIf='product.height' class="font-weight-bold">Package height </tr>
+
+              <tr *ngIf='product.LenseMaterial' class="font-weight-bold">Lense Material </tr>
+              <tr *ngIf='product.FrameMaterial' class="font-weight-bold">Frame Material </tr>
+              <tr *ngIf='product.LensWidth' class="font-weight-bold">Lens Width </tr>
+
+              <tr *ngIf='product.WaterResistant' class="font-weight-bold">Water Resistant</tr>
+              <tr *ngIf='product.WaterResistantDepth' class="font-weight-bold">Water Resistant Depth</tr>
+              <tr *ngIf='product.bandColor' class="font-weight-bold">Band Color</tr>
+              <tr *ngIf='product.MovementType' class="font-weight-bold">Movement Type</tr>
+              <tr *ngIf='product.BandMaterial' class="font-weight-bold">Band Material</tr>
+              <tr *ngIf='product.TargetedGroup' class="font-weight-bold">Targeted Group</tr>
+              <tr *ngIf='product.Type' class="font-weight-bold">Type</tr>
+              <tr *ngIf='product.DialColor' class="font-weight-bold">Dial Color</tr>
+
+              <tr *ngIf='product.style' class="font-weight-bold">Style</tr>
+              <tr *ngIf='product.Megapixel' class="font-weight-bold">Megapixel</tr>
+              <tr *ngIf='product.ModelNumber' class="font-weight-bold">Model Number</tr>
+              <tr *ngIf='product.Size' class="font-weight-bold">Size</tr>
+              <tr *ngIf='product.DigitalCameraType' class="font-weight-bold">Digital Camera Type</tr>
+              <tr *ngIf='product.ModelName' class="font-weight-bold">Model Name</tr>
+              <tr *ngIf='product.PowerSource' class="font-weight-bold">Power Source</tr>
+              <tr *ngIf='product.TotalSize' class="font-weight-bold">Total Size</tr>
+
+              
+
+            </td>
+            <td style="font-size:14px">
+                <tr *ngIf='product.Brand' class="">{{product.Brand}}</tr>
+                <tr *ngIf='product.numberSIM' class="">{{product.numberSIM}}</tr>
+                <tr *ngIf='product.operatingSystem' class="">{{product.operatingSystem}}</tr>
+                <tr *ngIf='product.networkTechnology' class="">{{product.networkTechnology}}</tr>
+                <tr *ngIf='product.memoryRam' class="">{{product.memoryRam}} GB</tr>
+                <tr *ngIf='product.frontCamera' class="">{{product.frontCamera}} MP</tr>
+                <tr *ngIf='product.color' class="">{{product.color}}</tr>
+                <tr *ngIf='product.backCamera' class="">{{product.backCamera}} MP</tr>
+                <tr *ngIf='product.Display'>{{product.Display}} Inch</tr>
+                <tr *ngIf='product.Keyboard'>{{product.Keyboard}}</tr>
+                <tr *ngIf='product.Processor'>{{product.Processor}}</tr>
+                <tr *ngIf='product.Touchscreen'>{{product.Touchscreen}}</tr>
+                <tr *ngIf='product.weight'>{{product.weight}} grams</tr>
+                <tr *ngIf='product.height'>{{product.height}} centimeters</tr>
+
+                <tr *ngIf='product.LenseMaterial'>{{product.LenseMaterial}}</tr>
+                <tr *ngIf='product.FrameMaterial'>{{product.FrameMaterial}}</tr>
+                <tr *ngIf='product.LensWidth'>{{product.LensWidth}} mm</tr>
+ 
+              <tr *ngIf='product.WaterResistant'>{{product.WaterResistant}}</tr>
+              <tr *ngIf='product.WaterResistantDepth'>{{product.WaterResistantDepth}}</tr>
+              <tr *ngIf='product.bandColor'>{{product.bandColor}}</tr>
+              <tr *ngIf='product.MovementType'>{{product.MovementType}}</tr>
+              <tr *ngIf='product.BandMaterial' >{{product.BandMaterial}}</tr>
+              <tr *ngIf='product.TargetedGroup' >{{product.TargetedGroup}}</tr>
+              <tr *ngIf='product.Type'>{{product.Type}}</tr>
+              <tr *ngIf='product.DialColor'>{{product.DialColor}}</tr>
+
+              <tr *ngIf='product.style'>{{product.style}}</tr>
+              <tr *ngIf='product.Megapixel'>{{product.Megapixel}}</tr>
+              <tr *ngIf='product.ModelNumber'>{{product.ModelNumber}}</tr>
+              <tr *ngIf='product.Size'>{{product.Size}}</tr>
+              <tr *ngIf='product.DigitalCameraType'>{{product.DigitalCameraType}}</tr>
+              <tr *ngIf='product.ModelName'>{{product.ModelName}}</tr>
+              <tr *ngIf='product.PowerSource'>{{product.PowerSource}}</tr>
+              <tr *ngIf='product.TotalSize'>{{product.TotalSize}}</tr>
+              
+              </td>
+          </tbody>
+        </table>
+  </div>
+</div>

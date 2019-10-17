@@ -1,0 +1,59 @@
+
+
+<div class="container">
+  <div class="row justify-content-center">
+
+      <div class="col-12 card-header">
+          <div class="fontREsponsev text-center">
+              thank you we are currently placing your order
+          </div>
+          <br>
+          <div class="fontREsponsev shadow-sm p-3 mt-3 bg-white rounded">
+              <span class=" badge badge-primary">
+                  <span>Order ID</span>
+              </span>
+              <span class="text-success">
+                  ({{orderserv.orderId}})
+              </span>
+                  <br>
+              <span class=" badge badge-primary">
+                  <span>Order Date</span>
+              </span>
+              <span class="text-success">
+                  ({{orderserv.orderDate}})
+              </span>
+                   <br>
+              <span class=" badge badge-primary">
+                  <span>Order Time</span>
+              </span>
+              <span class="text-success">
+                  ({{orderserv.orderTime}})
+              </span>
+          </div>
+      </div>
+
+      <div class="col-12 mt-5 shadow-sm p-3 bg-white rounded row secondRow ">
+          <div class="fontREsponsev col-12">
+              <span class="text-primary"><i class="fas fa-dolly"></i> </span> shipment
+          </div>
+
+          <div class="col-12 row mt-3" *ngIf="orderserv.ordersVw as ordersVw">
+              <div class="col-3 img">
+                  <img class="img-fluid" [src]="ordersVw.product.imageUrl" alt="">
+              </div>
+              <div class="col font-weight-bold displayOrderData row align-items-center">
+                  <div class="col-12">
+                      {{ordersVw.product.Brand}} , {{ordersVw.product.title}} ,
+                      {{ordersVw.product.operatingSystem}}
+                  </div>
+                  <div class="col-12 ">
+                      <span class="mr-auto">QTY : {{ordersVw.quantatiy}}</span>
+                  </div>
+              </div>
+          </div>
+          <div class="col-12">
+              <a routerLink='/' class="btn btn-primary mt-3 btn-block"> Continue shopping</a>
+          </div>
+      </div>
+  </div>
+</div>

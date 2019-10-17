@@ -1,0 +1,55 @@
+.navBrabd{
+    font-family: cursive;
+    font-weight: bold;
+}
+.mat-toolbar-row, .mat-toolbar-single-row {
+     padding: 0 6px; 
+}
+.image-div {
+    width: 35px;
+}
+.rowdropdown {
+    width:15%;
+}
+.ff{
+   height: 250px;
+   overflow-y: scroll
+}
+.name{
+    font-size:.82rem;
+    cursor: pointer;
+}
+
+.shopping{
+    max-height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    white-space: normal;
+    font-size: 14px;
+    line-height: 1rem;
+    .imdiv{
+        height: 100px;
+        img{
+            height: 100%;
+            width: 100%
+        }
+    }
+}
+.Shop-cheeck {
+    color: white;
+    &:hover{
+        background:none;
+    }
+}
+.drop {
+     display: inline-block; 
+     width: 35%; 
+    padding: 0.60rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: palevioletred;
+    border: 0;
+}

@@ -1,0 +1,179 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 mb-3">
+
+      <ngb-carousel *ngIf="images">
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img class="img-fluid" [src]="images[0]" alt="Random first slide" width="100%">
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img class="img-fluid" [src]="images[1]" alt="Random second slide" width="100%">
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img class="img-fluid" [src]="images[2]" alt="Random third slide" width="100%">
+          </div>
+        </ng-template>
+      </ngb-carousel>
+
+    </div>
+
+    <div class="col-12 p-0 m-0">
+      <div class="container-fluid p-0 m-0">
+        <div class="row shadow p-3 mb-3 bg-white rounded ">
+          <div class='ml-1 col-lg-2 col-md-3 col-7 pt-3 pb-3 h6 bg-dark text-light text-center'>
+            All your home needs
+          </div>
+          <div class="col-12 row p-0 m-0 ">
+
+            <div class="col-lg-6 col-12 p-0 m-0">
+              <a class="nav-link" routerLink='/all-one-ctegories' [queryParams]='{categor:HomeDecor.textContent}'>
+
+                <img class="img-fluid" src="https://cms.souqcdn.com/cms/boxes/img/desktop/1542650158_1%20%284%29.jpg"
+                  alt="">
+
+                <div #HomeDecor class="h6 text-dark pt-1">Home Decor</div>
+              </a>
+            </div>
+
+            <div class="col-lg-6 col-12 row text-center p-0 m-0">
+              <div class="col-6 p-0 m-0">
+                <a class="nav-link" routerLink='/all-one-ctegories' [queryParams]='{categor:ShoesRacks.textContent}'>
+                  <img class="img-fluid" src="https://cms.souqcdn.com/cms/boxes/img/desktop/1542650158_2%20%283%29.jpg"
+                    alt="">
+                  <div #ShoesRacks class="h6 text-dark pt-1">Shoes Racks</div>
+                </a>
+              </div>
+
+
+              <div class="col-6 p-0 m-0">
+                <a class="nav-link" routerLink='/all-one-ctegories' [queryParams]='{categor:Supplies.textContent}'>
+                  <img class="img-fluid" src="https://cms.souqcdn.com/cms/boxes/img/desktop/1542650158_3%20%283%29.jpg"
+                    alt="">
+                  <div #Supplies class="h6 text-dark pt-1">Storage & Home Supplies</div>
+                </a>
+              </div>
+
+
+              <div class="col-6 p-0 m-0">
+                <a class="nav-link" routerLink='/all-one-ctegories' [queryParams]='{categor:Accessories.textContent}'>
+                  <img class="img-fluid" src="https://cms.souqcdn.com/cms/boxes/img/desktop/1542650158_4%20%283%29.jpg"
+                    alt="">
+                  <div #Accessories class="h6 text-dark pt-1">Cleaning & Accessories</div>
+                </a>
+              </div>
+
+
+              <div class="col-6 p-0 m-0">
+                <a class="nav-link" routerLink='/all-one-ctegories' [queryParams]='{categor:Bags.textContent}'>
+                  <img class="img-fluid" src="https://cms.souqcdn.com/cms/boxes/img/desktop/1542650158_5%20%283%29.jpg"
+                    alt="">
+                  <div #Bags class="h6 text-dark pt-1">Bean Bags</div>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-12 p-0 m-0">
+      <div class="container-fluid p-0 m-0">
+        <div class="row shadow p-3 mb-3 bg-white rounded ">
+          <div class='ml-1 col-lg-2 col-md-3 col-7 pt-3 pb-3 h6 bg-dark text-light text-center'>
+            Go Ahead
+          </div>
+          <div class="col-12 row p-0 m-0 ">
+
+            <div class="col-12 row text-center p-0 m-0">
+              <div class="col-lg-3 col-6 p-0 m-0">
+                <a class="nav-link" routerLink='/all-one-ctegories' [queryParams]='{categor:Sunglas.textContent}'>
+                  <img class="img-fluid" src="https://cf1.walker.souqcdn.com/hodor/campaigns/1558260753-248182076.jpg"
+                    alt="">
+                  <div #Sunglas class="h6 text-dark pt-1">Sunglasses</div>
+                </a>
+              </div>
+
+              <div class="col-lg-3 col-6 p-0 m-0">
+                <a class="nav-link" routerLink='/all-one-ctegories' [queryParams]='{categor:Watches.textContent}'>
+                  <img class="img-fluid" src="https://cf4.walker.souqcdn.com/hodor/campaigns/1559084794-248182076.jpg"
+                    alt="">
+                  <div #Watches class="h6 text-dark pt-1">Watches</div>
+                </a>
+              </div>
+
+
+              <div class="col-lg-3 col-6 p-0 m-0">
+                <a class="nav-link" routerLink='/all-one-ctegories' [queryParams]='{categor:Backpacks.textContent}'>
+                  <img class="img-fluid" src="https://cms.souqcdn.com/cms/boxes/img/desktop/1569243306_4.jpg" alt="">
+                  <div #Backpacks class="h6 text-dark pt-1">Backpacks</div>
+                </a>
+              </div>
+
+
+              <div class="col-lg-3 col-6 p-0 m-0">
+                <a class="nav-link" routerLink='/all-one-ctegories' [queryParams]='{categor:CarSeats.textContent}'>
+                  <img class="img-fluid" src="https://cf3.walker.souqcdn.com/hodor/campaigns/1569761416-4217794395.jpg"
+                    alt="">
+                  <div #CarSeats class="h6 text-dark pt-1">Car Seats & Strollers</div>
+                </a>
+              </div>
+
+              <div class="col-12 p-0 m-0">
+                <a class="nav-link" routerLink='/all-one-ctegories' [queryParams]='{categor:HairTrimmer.textContent}'>
+                  <img class="img-fluid" src="https://cf3.walker.souqcdn.com/hodor/campaigns/1569943519-1017146970.jpg"
+                    alt="">
+                  <div #HairTrimmer class="h6 text-dark pt-1">Hair Trimmer</div>
+                </a>
+              </div>
+
+              <div class="col-12 row text-center p-0 m-0">
+                <div class="col-lg-3 col-6 p-0 m-0">
+                  <a class="nav-link" routerLink='/all-one-ctegories' [queryParams]='{categor:Beauty.textContent}'>
+                    <img class="img-fluid"
+                      src="https://cf5.walker.souqcdn.com/hodor/campaigns/1569847290-4217794395.jpg" alt="">
+                    <div #Beauty class="h6 text-dark pt-1">Beauty Tools</div>
+                  </a>
+                </div>
+
+                <div class="col-lg-3 col-6 p-0 m-0">
+                  <a class="nav-link" routerLink='/all-one-ctegories' [queryParams]='{categor:Deodorants.textContent}'>
+                    <img class="img-fluid"
+                      src="https://cf1.walker.souqcdn.com/hodor/campaigns/1569846986-4217794395.jpg" alt="">
+                    <div #Deodorants class="h6 text-dark pt-1">Deodorants</div>
+                  </a>
+                </div>
+
+
+                <div class="col-lg-3 col-6 p-0 m-0">
+                  <a class="nav-link" routerLink='/all-one-ctegories' [queryParams]='{categor:Beverages.textContent}'>
+                    <img class="img-fluid"
+                      src="https://cf3.walker.souqcdn.com/hodor/campaigns/1569764418-4217794395.jpg" alt="">
+                    <div #Beverages class="h6 text-dark pt-1">Beverages</div>
+                  </a>
+                </div>
+
+
+                <div class="col-lg-3 col-6 p-0 m-0">
+                  <a class="nav-link" routerLink='/all-one-ctegories' [queryParams]='{categor:Food.textContent}'>
+                    <img class="img-fluid"
+                      src="https://cf1.walker.souqcdn.com/hodor/campaigns/1569760691-4217794395.jpg" alt="">
+                    <div #Food class="h6 text-dark pt-1">Food</div>
+                  </a>
+                </div>
+
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>

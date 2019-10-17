@@ -1,0 +1,138 @@
+<mat-toolbar color='secondary' class='fixed-top shadow  mb-5 bg-secondary pl-0 pr-1.3'>
+
+  <div class="col-1 mr-auto pl-0 ">
+      <button mat-icon-button (click)='toggleSideNav()' class="text-info">
+          <i class="fas fa-sliders-h"></i>
+      </button>
+      <a class="navbar-brand text-white navBrabd" routerLink="/">Shop</a>
+  </div>
+
+  <div class=" d-none d-lg-block col-6 mr-auto ">
+
+      <app-search></app-search>
+
+  </div>
+
+  <div class="p-0">
+      <ng-template #anoneys>
+          <a class="nav-link text-white navBrabd" routerLink="/login">logIn</a>
+      </ng-template>
+      <div ngbDropdown class="dropdown">
+          <a ngbDropdownToggle class="name nav-link text-white navBrabd" *ngIf='authserv.user$ as user else anoneys'>
+              {{user.fristname}}
+          </a>
+
+          <div ngbDropdownMenu class="dropdown-menu text-primary">
+              <a ngbDropdownItem routerLink="/admin-products">Manage products</a>
+              <a ngbDropdownItem routerLink="/new-products">add new product</a>
+              <a ngbDropdownItem routerLink="/user-profile">User Profile</a>
+              <a ngbDropdownItem routerLink="/login" (click)="logout()">log out</a>
+          </div>
+      </div>
+  </div>
+
+  <div ngbDropdown class="dropdown d-lg-none d-md-block">
+      <button mat-icon-button class="text-primary" ngbDropdownToggle>
+          <i class="fas fa-search"></i>
+      </button>
+      <div ngbDropdownMenu style="width: 230px" class="pt-0 pb-0 ">
+          <app-search></app-search>
+      </div>
+  </div>
+
+  <div class="p-0" ngbDropdown>
+
+      <button mat-button ngbDropdownToggle>
+          <span class="badge badge-warning" *ngIf="shoppingCart$ |async as shoppingCart">
+              {{shoppingCart.getTotleCounter}}
+          </span>
+          <span class="text-primary cart h5">
+              <i class="fas fa-shopping-cart"></i>
+          </span>
+      </button>
+
+      <div ngbDropdownMenu class="row" class=" dropdown-menu " style="width: 300px">
+          <div class="col-12 shopping shadow-sm" *ngIf='cart$ | async as cart'>
+              <div class="row mb-3 shadow p-1 mb-1 bg-white rounded "
+                  *ngFor="let productID of cart.productIds ;let i = index">
+
+                  <div class="col-3 imdiv row p-2 ml-1 justify-content-center ">
+                      <img class=" p-1" [src]="cart.item[productID].product.imageUrl">
+                  </div>
+
+                  <div class="col-8 font-weight-bold ">
+                      <div>
+                              <span *ngIf='cart.item[productID].product.title'>
+                                      {{cart.item[productID].product.title}} </span>
+                          <span
+                              *ngIf='cart.item[productID].product.storageCapacity'>{{cart.item[productID].product.storageCapacity}}
+                              , </span>
+                          <span *ngIf='cart.item[productID].product.networkTechnology'>
+                              {{cart.item[productID].product.networkTechnology}} , </span>
+                          <span *ngIf='cart.item[productID].product.numberSIM'>
+                              {{cart.item[productID].product.numberSIM}} , </span>
+                          <span *ngIf='cart.item[productID].product.Processor'>
+                              {{cart.item[productID].product.Processor}} , </span>
+                          <span *ngIf='cart.item[productID].product.Display'> {{cart.item[productID].product.Display}}
+                              , </span>
+                          <span *ngIf='cart.item[productID].product.HardDisk'>
+                              {{cart.item[productID].product.HardDisk}} , </span>
+                          <span *ngIf='cart.item[productID].product.memoryRam'>
+                              {{cart.item[productID].product.memoryRam}} , </span>
+                          <span *ngIf='cart.item[productID].product.operatingSystem'>
+                              {{cart.item[productID].product.operatingSystem}} </span>
+                          <span *ngIf='cart.item[productID].product.TargetedGroup'>
+                              {{cart.item[productID].product.TargetedGroup}} </span>
+                          <span *ngIf='cart.item[productID].product.DialColor'>
+                              {{cart.item[productID].product.DialColor}} Dial </span>
+                          <span *ngIf='cart.item[productID].product.BandMaterial'>
+                              {{cart.item[productID].product.BandMaterial}} Band Watch </span>
+                          <span *ngIf='cart.item[productID].product.style'>
+                              {{cart.item[productID].product.style}}</span>
+                          <span *ngIf='cart.item[productID].product.Megapixel'>
+                              {{cart.item[productID].product.Megapixel}} Megapixel </span>
+                          <span *ngIf='cart.item[productID].product.ModelNumber'>
+                              {{cart.item[productID].product.ModelNumber}} Band Watch </span>
+                          <span *ngIf='cart.item[productID].product.height'>
+                              {{cart.item[productID].product.height}}centimeters </span>
+                          <span *ngIf='cart.item[productID].product.weight'>
+                              {{cart.item[productID].product.weight}}KG </span> 
+
+                      </div>
+                      <div class="text-primary mt-2"> {{cart.item[productID].product.price|currency:" EGP ":"symbol"}}
+                      </div>
+                      <div> QTY : {{cart.item[productID].quantatiy}}</div>
+
+                  </div>
+                  <div style="color: red" class="dropdown-divider"></div>
+
+              </div>
+
+
+          </div>
+
+          <div class="col-12 card-header" *ngIf="cart$ |async as cart">
+              <div class="row justify-content-center">
+                  <div class="col-12">
+                      <h4 class="font-weight-bold">Grand Total
+                          <span class="h5 font-weight-bold text-primary">
+                              {{cart.totalPrice|currency:"EGP":"symbol"}}
+                          </span>
+                      </h4>
+
+                  </div>
+                  <button class="btn btn-secondary p-1 mr-1">
+                      <a class="nav-link dropdown-item Shop-cheeck" routerLink='/shopping-cart'>VIEW CART</a>
+                  </button>
+
+                  <button routerLink ='/cheeck-out' class="btn dropdown-item drop btn-success p-1 text-center" [disabled] = 'cart.getTotleCounter == 0'>
+                      CHEEKOUT
+                  </button>
+              </div>
+          </div>
+
+      </div>
+
+
+  </div>
+</mat-toolbar>

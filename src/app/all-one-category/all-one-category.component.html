@@ -1,0 +1,47 @@
+
+
+<div class="container">
+  <div class="row">
+   <!-- <div class="col-3">
+        <h3>
+
+      <div *ngFor="let p of conterbrand">
+        {{p}}
+      </div>
+
+          Choose Your Brand
+
+        </h3>      
+        <div class="list-group" *ngFor="let product of filterBrand1">
+            <a class="list-group-item list-group-item-action" 
+               routerLink="/allOneCategory" 
+               [queryParams]="{Brand:product.payload.val().Brand}" 
+               [class.active]='product.payload.val().Brand === brand1'>
+              {{product.payload.val().Brand}}
+            </a>
+        </div>
+
+
+    </div>-->
+
+    <div class="col-12">
+
+      <div class="row">
+
+        <div  class=" col-lg-4 col-md-6 col-sm-8 col-12" *ngFor="let product of filterProducts"> 
+    
+               <app-products-card [product]='product'> 
+                 
+               </app-products-card>
+               
+        </div>
+    
+     </div> 
+
+   </div>
+
+  </div>
+</div>
+
+
+

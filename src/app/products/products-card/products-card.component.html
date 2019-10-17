@@ -1,0 +1,44 @@
+    
+    <div class="border p-2">
+      <div class="p-1 d-flex justify-content-center position-relative">
+        <img class="img-fluid image" [src]="product.payload.val().imageUrl">
+        <div class="link">
+              <button [routerLink]='["/products-detail/",product.key]' class="btn btn-primary">
+                  Product details
+              </button>
+        </div>
+      </div>
+  
+      <div class="font-weight-bold p-1">
+                  <span *ngIf='product.payload.val().title' class="">{{product.payload.val().title}} </span> 
+                  <span *ngIf='product.payload.val().numberSIM' class="">{{product.payload.val().numberSIM}} </span> 
+                  <span *ngIf='product.payload.val().operatingSystem' class="">{{product.payload.val().operatingSystem}} </span> 
+                  <span *ngIf='product.payload.val().networkTechnology' class="">( {{product.payload.val().networkTechnology}} )</span> 
+                  <span *ngIf='product.payload.val().memoryRam' class="">{{product.payload.val().memoryRam}}<span class="text-secondary">GB</span> RM </span> 
+                  <span *ngIf='product.payload.val().frontCamera' class="">{{product.payload.val().frontCamera}}<span class="text-secondary">MP</span> </span> 
+                  <span *ngIf='product.payload.val().color' class="">{{product.payload.val().color}} </span> 
+                  <span *ngIf='product.payload.val().backCamera' class="">{{product.payload.val().backCamera}}<span class="text-secondary">MP</span> </span> 
+                  <span *ngIf='product.payload.val().Processor' class="">{{product.payload.val().Processor}} </span> 
+                  <span *ngIf='product.payload.val().Display' class="">{{product.payload.val().Display}} </span> 
+                  <span *ngIf='product.payload.val().HardDisk' class="">{{product.payload.val().HardDisk}}<span class="text-secondary">GB</span> </span> 
+                  <span *ngIf='product.payload.val().TargetedGroup' class=""><span class="text-secondary">For</span> {{product.payload.val().TargetedGroup}} </span> 
+                  <span *ngIf='product.payload.val().DialColor' class="">{{product.payload.val().DialColor}} </span> 
+                  <span *ngIf='product.payload.val().BandMaterial' class="">{{product.payload.val().BandMaterial}} </span> 
+                  <span *ngIf='product.payload.val().style' class="">{{product.payload.val().style}} </span>
+                  <span *ngIf='product.payload.val().Megapixel' class="">{{product.payload.val().Megapixel}}<span class="text-secondary">MP </span> </span>  
+                  <span *ngIf='product.payload.val().ModelNumber' class="">{{product.payload.val().ModelNumber}} </span> 
+                  <span *ngIf='product.payload.val().storageCapacity' class="">{{product.payload.val().storageCapacity}}<span class="text-secondary">GB </span> </span> 
+                  <span *ngIf='product.payload.val().weight' class="">{{product.payload.val().weight}}<span class="text-secondary">grame </span> </span> 
+                  <span *ngIf='product.payload.val().height' class="">{{product.payload.val().height}}<span class="text-secondary"> centimeters </span> </span> 
+      </div>
+
+      <div class="price font-weight-bold p-3 text-primary">
+            {{product.payload.val().price|currency:" EGP ":"symbol"}}  
+      </div>
+    
+      <div class="p-1">
+        <button class="btn btn-success btn-block" (click)="addToCart()">Add to cart</button>
+      </div>
+    
+    </div>
+  

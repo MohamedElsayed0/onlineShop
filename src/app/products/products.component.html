@@ -1,0 +1,16 @@
+
+   
+
+
+<div class="container-fluid">
+  <div class="row ">
+
+     <div  class="col-lg-3 col-md-4 col-12" *ngFor="let product of products"> 
+
+            <app-products-card [product]='product' [shoppingCart]='shoppingCart$ |async'> 
+              
+            </app-products-card>
+     </div> 
+
+  </div> 
+</div>

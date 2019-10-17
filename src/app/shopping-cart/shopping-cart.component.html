@@ -1,0 +1,186 @@
+<div class="container">
+  <div class="row">
+
+          <div class="col-12" *ngIf=" cart$ | async as cart">
+
+                  <h1 class="h3"> Shopping Cart ({{cart.getTotleCounter}}) </h1>
+          </div>
+
+          <div class="col-12 col-sm-12 col-md-12 col-lg-8 mr-3">
+
+                  <div *ngIf="cart$ | async as cart">
+
+                          <div class="row border  p-3 mb-3" *ngFor="let productID of productIDs ; let i = index;">
+
+                                  <div class="col-12 col-md-3">
+                                          <img class="img-fluid imageUrl"
+                                                  [src]="cart.item[productID].product.imageUrl" alt="">
+                                  </div>
+
+                                  <div class="col">
+
+                                          <div class=" spanName mb-3">
+                                                  <span *ngIf='cart.item[productID].product.title'>{{cart.item[productID].product.title}}
+                                                          , </span>
+                                                  <span *ngIf='cart.item[productID].product.storageCapacity'>{{cart.item[productID].product.storageCapacity}}
+                                                          , </span>
+                                                  <span *ngIf='cart.item[productID].product.networkTechnology'>
+                                                          {{cart.item[productID].product.networkTechnology}} ,
+                                                  </span>
+                                                  <span *ngIf='cart.item[productID].product.numberSIM'>
+                                                          {{cart.item[productID].product.numberSIM}} , </span>
+                                                  <span *ngIf='cart.item[productID].product.Processor'>
+                                                          {{cart.item[productID].product.Processor}} , </span>
+                                                  <span *ngIf='cart.item[productID].product.Display'>
+                                                          {{cart.item[productID].product.Display}} , </span>
+                                                  <span *ngIf='cart.item[productID].product.HardDisk'>
+                                                          {{cart.item[productID].product.HardDisk}} , </span>
+                                                  <span *ngIf='cart.item[productID].product.memoryRam'>
+                                                          {{cart.item[productID].product.memoryRam}} , </span>
+                                                  <span *ngIf='cart.item[productID].product.operatingSystem'>
+                                                          {{cart.item[productID].product.operatingSystem}} </span>
+                                                  <span *ngIf='cart.item[productID].product.TargetedGroup'>
+                                                          {{cart.item[productID].product.TargetedGroup}} </span>
+                                                  <span *ngIf='cart.item[productID].product.DialColor'>
+                                                          {{cart.item[productID].product.DialColor}} Dial </span>
+                                                  <span *ngIf='cart.item[productID].product.BandMaterial'>
+                                                          {{cart.item[productID].product.BandMaterial}} Band Watch
+                                                  </span>
+                                                  <span *ngIf='cart.item[productID].product.style'>
+                                                          {{cart.item[productID].product.style}}</span>
+                                                  <span *ngIf='cart.item[productID].product.Megapixel'>
+                                                          {{cart.item[productID].product.Megapixel}} Megapixel
+                                                  </span>
+                                                  <span *ngIf='cart.item[productID].product.ModelNumber'>
+                                                          {{cart.item[productID].product.ModelNumber}} Band Watch
+                                                  </span>
+                                                  <span *ngIf='cart.item[productID].product.height'>
+                                                          {{cart.item[productID].product.height}}centimeters
+                                                  </span>
+                                                  <span *ngIf='cart.item[productID].product.weight'>
+                                                          {{cart.item[productID].product.weight}}kg </span>
+                                          </div>
+
+                                          <div class="text-primary font-weight-bold mb-3">
+                                                  {{cart.item[productID].product.price|currency:" EGP ":"symbol"}}
+                                          </div>
+
+
+                                          <div class=" mb-3 ">
+                                                  <span class="spanName"> QYT :
+                                                  </span>{{cart.item[productID].quantatiy}}
+                                          </div>
+
+                                          <div class="pb-3">
+                                                  <span *ngIf='cart.item[productID].product.height'>
+                                                          <span class="spanName">Package height :</span>
+                                                          {{cart.item[productID].product.height}} centimeters <br>
+                                                  </span>
+                                                  <span *ngIf='cart.item[productID].product.weight'>
+                                                          <span class="spanName">package weight :</span>
+                                                          {{cart.item[productID].product.weight}} kg <br>
+                                                  </span>
+                                                  <span *ngIf='cart.item[productID].product.storageCapacity'>
+                                                          <span class="spanName">Storage Capacity :</span>
+                                                          {{cart.item[productID].product.storageCapacity}} <br>
+                                                  </span>
+
+                                                  <span *ngIf='cart.item[productID].product.color'>
+                                                          <span class="spanName">Color : </span>
+                                                          {{cart.item[productID].product.color}} <br>
+                                                  </span>
+
+                                                  <span *ngIf='cart.item[productID].product.battery'>
+                                                          <span class="spanName"> Battery :</span>
+                                                          {{cart.item[productID].product.battery}} <br>
+                                                  </span>
+
+                                                  <span *ngIf='cart.item[productID].product.backCamera'>
+                                                          <span class="spanName"> Back Camera :</span>
+                                                          {{cart.item[productID].product.backCamera}} <br>
+                                                  </span>
+
+                                                  <span *ngIf='cart.item[productID].product.frontCamera'>
+                                                          <span class="spanName">Front Camera :</span>
+                                                          {{cart.item[productID].product.frontCamera}} <br>
+                                                  </span>
+
+
+
+                                                  <span *ngIf='cart.item[productID].product.WaterResistant'>
+                                                          <span class="spanName">Water Resistant :</span>
+                                                          {{cart.item[productID].product.WaterResistant}} <br>
+                                                  </span>
+                                                  <span *ngIf='cart.item[productID].product.bandColor'>
+                                                          <span class="spanName">Band Color :</span>
+                                                          {{cart.item[productID].product.bandColor}} <br>
+                                                  </span>
+                                                  <span *ngIf='cart.item[productID].product.TargetedGroup'>
+                                                          <span class="spanName">Targeted Group :</span>
+                                                          {{cart.item[productID].product.TargetedGroup}} <br>
+                                                  </span>
+
+                                                  <span *ngIf='cart.item[productID].product.style'>
+                                                          <span class="spanName">style :</span>
+                                                          {{cart.item[productID].product.style}} <br>
+                                                  </span>
+                                                  <span *ngIf='cart.item[productID].product.Megapixel'>
+                                                          <span class="spanName">Megapixel :</span>
+                                                          {{cart.item[productID].product.Megapixel}} <br>
+                                                  </span>
+                                                  <span *ngIf='cart.item[productID].product.Processor'>
+                                                          <span class="spanName">Processor :</span>
+                                                          {{cart.item[productID].product.Processor}} <br>
+                                                  </span>
+                                                  <span *ngIf='cart.item[productID].product.LensWidth'>
+                                                          <span class="spanName">Lens Width :</span>
+                                                          {{cart.item[productID].product.LensWidth}} mm <br>
+                                                  </span>
+                                                  <span *ngIf='cart.item[productID].product.FrameMaterial'>
+                                                          <span class="spanName">Frame Material :</span>
+                                                          {{cart.item[productID].product.FrameMaterial}} <br>
+                                                  </span>
+                                                  <span *ngIf='cart.item[productID].product.LenseMaterial'>
+                                                          <span class="spanName">Lense Material :</span>
+                                                          {{cart.item[productID].product.LenseMaterial}} <br>
+                                                  </span>
+                                                  <span *ngIf='cart.item[productID].product.PowerSource'>
+                                                                  <span class="spanName">Power Source :</span>
+                                                                  {{cart.item[productID].product.PowerSource}} <br>
+                                                  </span>
+                                                  <span *ngIf='cart.item[productID].product.TotalSize'>
+                                                                  <span class="spanName">Total Size :</span>
+                                                                  {{cart.item[productID].product.TotalSize}} <br>
+                                                  </span>     
+                                          </div>
+
+                                  </div>
+
+                                  <div class="col-12 border-top pt-3">
+                                          <button class="btn btn-danger" (click)="removeItem(i)"> Delete </button>
+                                  </div>
+
+                          </div>
+
+                  </div>
+
+          </div>
+          <div class="col-lg-3 col-md-4 col-12" *ngIf="cart$ |async as cart">
+
+                  <div class="border row justify-content-center">
+                          <div class="h4 p-3">
+                                  Total : <span
+                                          class="text-primary">{{cart.totalPrice|currency:" EGP ":"symbol"}}</span>
+                          </div>
+
+                          <div class="p-3">
+                                  <button routerLink='/cheeck-out' class="btn btn-success" [disabled] = 'cart.getTotleCounter == 0'>
+                                                PROCEED TO CHECKOUT
+                                  </button>
+                          </div>
+                  </div>
+
+          </div>
+  </div>
+
+</div>

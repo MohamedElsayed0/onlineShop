@@ -1,0 +1,22 @@
+.background{
+    background-color: red;
+}
+.fontREsponsev{
+    font-size:18px;
+    font-weight: bold
+}
+@media (max-width : 786px) {
+    .fontREsponsev{font-size: 17px;}
+}
+@media (max-width : 425px) {
+    .fontREsponsev{font-size: 14px;}
+}
+@media (max-width : 375px) {
+    .fontREsponsev{font-size: 12px;}
+}
+@media (max-width : 320px) {
+    .fontREsponsev{font-size: 11px;}
+}
+.bab{
+    background-color:rgb(246, 255, 246);
+}

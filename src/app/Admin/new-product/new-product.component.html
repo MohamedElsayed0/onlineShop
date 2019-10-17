@@ -1,0 +1,562 @@
+<!--<div class="container">
+  <div class="row">
+    <div *ngFor="let cat of Category$|async" class="col-3" style="display: flex">
+      <a routerLink="/new-products" [queryParams]="{categor:cat.name}" class=" list-group-item list-group-item-action">
+        {{cat.name}}
+      </a>
+    </div>
+  </div>
+</div>-->
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-12">
+
+
+      <!--for mobile-->
+      <form #formMobile='ngForm' (ngSubmit)="save(formMobile.value)" class="col-12 row">
+        <!--For Each Product-->
+
+        <div class="col-6 row">
+          <h1>For Each Product</h1>
+          <!--title-->
+          <div class="form-group col-12">
+
+            <label for="title">Title</label>
+            <input class="form-control" type="text" ngModel name="title" #title="ngModel" required minlength="3">
+            <div *ngIf="title.invalid && title.touched" class="alert alert-danger">
+              <div *ngIf="title.errors.required">
+                please enter a product title
+              </div>
+              <div *ngIf="title.errors.minlength">
+                minlength is {{title.errors.minlength.requiredLength}}
+              </div>
+            </div>
+
+          </div>
+
+          <!--price-->
+          <div class="form-group col-6">
+            <label for="price">price</label>
+            <input class="form-control" type="text" name="price" ngModel #price="ngModel" required [min]="0">
+            <div *ngIf="price.invalid && price.touched" class="alert alert-danger">
+              <div *ngIf="price.errors.required">
+                please enter a product price
+              </div>
+              <div *ngIf="price.errors.min">
+                minlength is 0
+              </div>
+            </div>
+
+          </div>
+
+          <!--Catrgory-->
+          <div class="form-group col-6">
+            <label for="Catrgory">Catrgory</label>
+            <select name="Catrgory" class="form-control" ngModel #Catrgory="ngModel" required>
+              <option *ngFor="let catg of Category$ | async" [value]="catg.name">
+                {{catg.name}}
+              </option>
+            </select>
+
+            <div *ngIf="Catrgory.invalid && Catrgory.touched" class="alert alert-danger">
+              <div *ngIf="Catrgory.errors.required">
+                please enter a product Catrgory
+              </div>
+            </div>
+
+          </div>
+
+          <!--imageUrl-->
+          <div class="form-group col-12">
+            <label for="imageUrl">imageUrl</label>
+            <input class="form-control" type="text" name="imageUrl" ngModel #imageUrl="ngModel" required url>
+            <div *ngIf="imageUrl.invalid && imageUrl.touched" class="alert alert-danger">
+              <div *ngIf="imageUrl.errors.required">
+                please enter a product imageUrl
+              </div>
+              <div *ngIf="imageUrl.errors.url">
+                please enter a valid Url
+              </div>
+            </div>
+          </div>
+
+          <!--imageUrl1-->
+          <div class="form-group col-12">
+            <label for="imageUrl1">imageUrl 1</label>
+            <input class="form-control" type="text" name="imageUrl1">
+          </div>
+
+          <!--imageUrl2-->
+          <div class="form-group col-12">
+            <label for=" imageUrl2">imageUrl 2</label>
+            <input class="form-control" type="text" name="imageUrl2">
+          </div>
+
+          <!--color-->
+          <div class="form-group col-6">
+            <label for="color">color</label>
+            <input class="form-control" type="text" name="color">
+
+          </div>
+
+          <!--Brand-->
+          <div class="form-group col-6">
+            <label for="Brand">Brand</label>
+            <input class="form-control" type="text" name="Brand" ngModel #Brand="ngModel" required>
+            <div *ngIf="Brand.invalid && Brand.touched" class="alert alert-danger">
+              <div *ngIf="Brand.errors.required">
+                please enter a Brand
+              </div>
+            </div>
+          </div>
+
+          <!--Package height-->
+          <div class="form-group col-6">
+            <label for="Packageheight">Package height</label>
+            <input class="form-control" type="text" name="height" ngModel #height="ngModel" required>
+            <div *ngIf="height.invalid && weight.touched" class="alert alert-danger">
+              <div *ngIf="height.errors.required">
+                please enter a product height
+              </div>
+            </div>
+          </div>
+          <!--Total Size-->
+          <div class="form-group col-6">
+            <label for="TotalSize">Total Size</label>
+            <input class="form-control" type="text" name="TotalSize" ngModel #TotalSize="ngModel" required>
+            <div *ngIf="TotalSize.invalid && TotalSize.touched" class="alert alert-danger">
+              <div *ngIf="TotalSize.errors.required">
+                please enter a product Total Size
+              </div>
+            </div>
+          </div>
+
+          <!--Type -->
+          <div class="form-group col-12">
+            <label for="Type"> Type </label>
+            <input class="form-control" type="text" name="Type" ngModel #Type="ngModel" required>
+            <div *ngIf="Type.invalid && Type.touched" class="alert alert-danger">
+              <div *ngIf="Type.errors.required">
+                please enter Type
+              </div>
+            </div>
+          </div>
+
+          <!--Description-->
+          <div class="form-group col-12">
+            <label for="Description">Description</label>
+            <textarea class="form-control" type="text" name="description" ngModel #description="ngModel" required>
+          </textarea>
+            <div *ngIf="description.invalid && description.touched" class="alert alert-danger">
+              <div *ngIf="backCamera.errors.required">
+                please enter a Description
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!--For Mobile-->
+        <div class="col-6">
+          <h1>For Mobile </h1>
+          <!--Operating System-->
+          <div class="form-group">
+            <label for="Operating">Operating System</label>
+            <input class="form-control" type="text" name="operatingSystem" ngModel #operatingSystem="ngModel" required>
+            <div *ngIf="operatingSystem.invalid && operatingSystem.touched" class="alert alert-danger">
+              <div *ngIf="operatingSystem.errors.required">
+                please enter the Operating System
+              </div>
+            </div>
+          </div>
+
+          <!--Storage-->
+          <div class="form-group">
+            <label for="Storage">Storage Capacity</label>
+            <input class="form-control" type="text" name="storageCapacity" ngModel #storageCapacity="ngModel" required>
+            <div *ngIf="storageCapacity.invalid && storageCapacity.touched" class="alert alert-danger">
+              <div *ngIf="storageCapacity.errors.required">
+                please enter the Storage Capacity
+              </div>
+            </div>
+          </div>
+
+          <!--NumberOfSIM-->
+          <div class="form-group">
+            <label for="NumberOfSIM">Number Of SIM</label>
+            <input class="form-control" type="text" name="numberSIM" ngModel #numberSIM="ngModel" required>
+            <div *ngIf="numberSIM.invalid && numberSIM.touched" class="alert alert-danger">
+              <div *ngIf="numberSIM.errors.required">
+                please enter the Number Of SIM
+              </div>
+            </div>
+          </div>
+
+          <!--Network-->
+          <div class="form-group">
+            <label for="Network">Cellular Network Technology</label>
+            <input class="form-control" type="text" name="networkTechnology" ngModel #networkTechnology="ngModel"
+              required>
+            <div *ngIf="networkTechnology.invalid && networkTechnology.touched" class="alert alert-danger">
+              <div *ngIf="networkTechnology.errors.required">
+                please enter a Cellular Network Technology
+              </div>
+            </div>
+          </div>
+
+          <!--Battery-->
+          <div class="form-group">
+            <label for="Battery">Battery Capacity in mAh</label>
+            <input class="form-control" type="text" name="battery" ngModel #battery="ngModel" required>
+            <div *ngIf="battery.invalid && battery.touched" class="alert alert-danger">
+              <div *ngIf="battery.errors.required">
+                please enter a Battery Capacity
+              </div>
+            </div>
+          </div>
+
+          <!--Front Camera-->
+          <div class="form-group">
+            <label for="FrontCamera">Front Camera</label>
+            <input class="form-control" type="text" name="frontCamera" ngModel #frontCamera="ngModel" required>
+            <div *ngIf="frontCamera.invalid && frontCamera.touched" class="alert alert-danger">
+              <div *ngIf="frontCamera.errors.required">
+                please enter a Front Camera
+              </div>
+            </div>
+          </div>
+
+          <!--Back Camera-->
+          <div class="form-group">
+            <label for="BackCamera">Back Camera</label>
+            <input class="form-control" type="text" name="backCamera" ngModel #backCamera="ngModel" required>
+            <div *ngIf="backCamera.invalid && backCamera.touched" class="alert alert-danger">
+              <div *ngIf="backCamera.errors.required">
+                please enter a Back Camera
+              </div>
+            </div>
+          </div>
+
+          <!--MemoryRAM-->
+          <div class="form-group">
+            <label for="MemoryRAM">Memory RAM</label>
+            <input class="form-control" type="text" name="memoryRam" ngModel #memoryRam="ngModel" required>
+            <div *ngIf="memoryRam.invalid && memoryRam.touched" class="alert alert-danger">
+              <div *ngIf="memoryRam.errors.required">
+                please enter Memory RAM
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--For LapTop-->
+        <div class="col-6">
+          <h1>For LapTop</h1>
+          <!--weight in KGs-->
+          <div class="form-group">
+            <label for="weight">weight in KGs</label>
+            <input class="form-control" type="text" name="weight" ngModel #weight="ngModel" required>
+            <div *ngIf="weight.invalid && weight.touched" class="alert alert-danger">
+              <div *ngIf="weight.errors.required">
+                please enter a product weight
+              </div>
+            </div>
+          </div>
+
+          <!--Processor Type-->
+          <div class="form-group">
+            <label for="Processor">Processor Type</label>
+            <input class="form-control" type="text" name="Processor" ngModel #Processor="ngModel" required>
+            <div *ngIf="Processor.invalid && Processor.touched" class="alert alert-danger">
+              <div *ngIf="Processor.errors.required">
+                please enter a product Processor Type
+              </div>
+            </div>
+          </div>
+
+          <!--Hard Disk Interface-->
+          <div class="form-group">
+            <label for="HardDisk">Hard Disk Interface</label>
+            <input class="form-control" type="text" name="HardDisk" ngModel #HardDisk="ngModel" required>
+            <div *ngIf="HardDisk.invalid && HardDisk.touched" class="alert alert-danger">
+              <div *ngIf="HardDisk.errors.required">
+                please enter a product Hard Disk Interface
+              </div>
+            </div>
+          </div>
+
+          <!--Display Size (Inch)-->
+          <div class="form-group">
+            <label for="Display">Display Size (Inch)</label>
+            <input class="form-control" type="text" name="Display" ngModel #Display="ngModel" required>
+            <div *ngIf="Display.invalid && Display.touched" class="alert alert-danger">
+              <div *ngIf="Display.errors.required">
+                please enter a product Display Size (Inch)
+              </div>
+            </div>
+          </div>
+
+          <!--Touch screen-->
+          <div class="form-group">
+            <label for="Touchscreen">Touch screen</label>
+            <input class="form-control" type="text" name="Touchscreen" ngModel #Touchscreen="ngModel" required>
+            <div *ngIf="Touchscreen.invalid && Touchscreen.touched" class="alert alert-danger">
+              <div *ngIf="Touchscreen.errors.required">
+                please enter a product Touch screen
+              </div>
+            </div>
+          </div>
+
+          <!--Keyboard Languages-->
+          <div class="form-group">
+            <label for="Keyboard">Keyboard Languages</label>
+            <input class="form-control" type="text" name="Keyboard" ngModel #Keyboard="ngModel" required>
+            <div *ngIf="Keyboard.invalid && Keyboard.touched" class="alert alert-danger">
+              <div *ngIf="Keyboard.errors.required">
+                please enter a product Display Size (Inch)
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--For Watche-->
+        <div class="col-6">
+          <h1>For Watche</h1>
+          <!--Water resistant-->
+          <div class="form-group">
+            <label for="WaterResistant">Water resistant</label>
+            <input class="form-control" type="text" name="WaterResistant" ngModel #WaterResistant="ngModel" required>
+            <div *ngIf="WaterResistant.invalid && WaterResistant.touched" class="alert alert-danger">
+              <div *ngIf="WaterResistant.errors.required">
+                please enter Water resistant
+              </div>
+            </div>
+          </div>
+
+          <!--Water resistant depth-->
+          <div class="form-group">
+            <label for="WaterResistantDepth">Water resistant depth</label>
+            <input class="form-control" type="text" name="WaterResistantDepth" ngModel #WaterResistantDepth="ngModel"
+              required>
+            <div *ngIf="WaterResistantDepth.invalid && WaterResistantDepth.touched" class="alert alert-danger">
+              <div *ngIf="WaterResistantDepth.errors.required">
+                please enter Water resistant
+              </div>
+            </div>
+          </div>
+
+          <!--Band Color-->
+          <div class="form-group">
+            <label for="bandColor"> Band Color</label>
+            <input class="form-control" type="text" name="bandColor" ngModel #bandColor="ngModel" required>
+            <div *ngIf="bandColor.invalid && bandColor.touched" class="alert alert-danger">
+              <div *ngIf="bandColor.errors.required">
+                please enter Band Color
+              </div>
+            </div>
+          </div>
+
+          <!--Movement Type -->
+          <div class="form-group">
+            <label for="MovementType"> Movement Type</label>
+            <input class="form-control" type="text" name="MovementType" ngModel #MovementType="ngModel" required>
+            <div *ngIf="MovementType.invalid && MovementType.touched" class="alert alert-danger">
+              <div *ngIf="MovementType.errors.required">
+                please enter Movement Type
+              </div>
+            </div>
+          </div>
+
+          <!--Band Material -->
+          <div class="form-group">
+            <label for="BandMaterial"> Band Material </label>
+            <input class="form-control" type="text" name="BandMaterial" ngModel #BandMaterial="ngModel" required>
+            <div *ngIf="BandMaterial.invalid && BandMaterial.touched" class="alert alert-danger">
+              <div *ngIf="BandMaterial.errors.required">
+                please enter Band Material
+              </div>
+            </div>
+          </div>
+
+          <!--Targeted Group -->
+          <div class="form-group">
+            <label for="TargetedGroup"> Targeted Group </label>
+            <input class="form-control" type="text" name="TargetedGroup" ngModel #TargetedGroup="ngModel" required>
+            <div *ngIf="TargetedGroup.invalid && TargetedGroup.touched" class="alert alert-danger">
+              <div *ngIf="TargetedGroup.errors.required">
+                please enter Targeted Group
+              </div>
+            </div>
+          </div>
+
+
+          <!--Dial Color -->
+          <div class="form-group">
+            <label for="DialColor"> Dial Color </label>
+            <input class="form-control" type="text" name="DialColor" ngModel #DialColor="ngModel" required>
+            <div *ngIf="DialColor.invalid && DialColor.touched" class="alert alert-danger">
+              <div *ngIf="DialColor.errors.required">
+                please enter Dial Color
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--For camera-->
+        <div class="col-6">
+          <h1>Camera</h1>
+          <!--Manufacturer Number-->
+          <div class="form-group">
+            <label for="ManufacturerNumber">Manufacturer Number</label>
+            <input class="form-control" type="text" name="ManufacturerNumber" ngModel #ManufacturerNumber="ngModel"
+              required>
+            <div *ngIf="ManufacturerNumber.invalid && ManufacturerNumber.touched" class="alert alert-danger">
+              <div *ngIf="ManufacturerNumber.errors.required">
+                please enter a Manufacturer Number
+              </div>
+            </div>
+          </div>
+          <!--Camera Size-->
+          <div class="form-group">
+            <label for="camSize">Size</label>
+            <input class="form-control" type="text" name="camSize" ngModel #camSize="ngModel" required>
+            <div *ngIf="camSize.invalid && camSize.touched" class="alert alert-danger">
+              <div *ngIf="camSize.errors.required">
+                please enter a Size Camera
+              </div>
+            </div>
+          </div>
+
+          <!--Digital Camera Type-->
+          <div class="form-group">
+            <label for="DigitalCameraType">Digital Camera Type</label>
+            <input class="form-control" type="text" name="DigitalCameraType" ngModel #DigitalCameraType="ngModel"
+              required>
+            <div *ngIf="DigitalCameraType.invalid && DigitalCameraType.touched" class="alert alert-danger">
+              <div *ngIf="DigitalCameraType.errors.required">
+                please enter a Digital Camera Type
+              </div>
+            </div>
+          </div>
+
+          <!--Model Number-->
+          <div class="form-group">
+            <label for="ModelNumber">Model Number</label>
+            <input class="form-control" type="text" name="ModelNumber" ngModel #ModelNumber="ngModel" required>
+            <div *ngIf="ModelNumber.invalid && ModelNumber.touched" class="alert alert-danger">
+              <div *ngIf="ModelNumber.errors.required">
+                please enter a Model Number
+              </div>
+            </div>
+          </div>
+
+          <!--Model Name-->
+          <div class="form-group">
+            <label for="ModelName">Model Name</label>
+            <input class="form-control" type="text" name="ModelName" ngModel #ModelName="ngModel" required>
+            <div *ngIf="ModelName.invalid && ModelName.touched" class="alert alert-danger">
+              <div *ngIf="ModelName.errors.required">
+                please enter a Model Name
+              </div>
+            </div>
+          </div>
+
+          <!--Style-->
+          <div class="form-group">
+            <label for="Style">Style</label>
+            <input class="form-control" type="text" name="Style" ngModel #Style="ngModel" required>
+            <div *ngIf="Style.invalid && Style.touched" class="alert alert-danger">
+              <div *ngIf="Style.errors.required">
+                please enter a Style Name
+              </div>
+            </div>
+          </div>
+
+          <!--Megapixel-->
+          <div class="form-group">
+            <label for="Megapixel">Megapixel</label>
+            <input class="form-control" type="text" name="Megapixel" ngModel #Megapixel="ngModel" required>
+            <div *ngIf="Megapixel.invalid && Megapixel.touched" class="alert alert-danger">
+              <div *ngIf="Megapixel.errors.required">
+                please enter a Megapixel
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--For Hair Trimmer-->
+        <div class="col-6">
+          <h1>Hair Trimmer</h1>
+          <!--Power Source -->
+          <div class="form-group">
+            <label for="PowerSource"> Power Source </label>
+            <input class="form-control" type="text" name="PowerSource" ngModel #PowerSource="ngModel" required>
+            <div *ngIf="PowerSource.invalid && PowerSource.touched" class="alert alert-danger">
+              <div *ngIf="PowerSource.errors.required">
+                please enter Power Source
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Sunglasses-->
+        <div class="col-6">
+          <h1>Sunglasses</h1>
+          <!--Lens Width -->
+          <div class="form-group">
+            <label for="LensWidth"> Lens Width </label>
+            <input class="form-control" type="text" name="LensWidth" ngModel #LensWidth="ngModel" required>
+            <div *ngIf="LensWidth.invalid && LensWidth.touched" class="alert alert-danger">
+              <div *ngIf="LensWidth.errors.required">
+                please enter Lens Width
+              </div>
+            </div>
+          </div>
+
+          <!--Frame Material -->
+          <div class="form-group">
+            <label for="FrameMaterial"> Frame Material </label>
+            <input class="form-control" type="text" name="FrameMaterial" ngModel #FrameMaterial="ngModel" required>
+            <div *ngIf="FrameMaterial.invalid && FrameMaterial.touched" class="alert alert-danger">
+              <div *ngIf="FrameMaterial.errors.required">
+                please enter Frame Material
+              </div>
+            </div>
+          </div>
+
+          <!--Lense Material -->
+          <div class="form-group">
+            <label for="LenseMaterial"> Lense Material </label>
+            <input class="form-control" type="text" name="LenseMaterial" ngModel #LenseMaterial="ngModel" required>
+            <div *ngIf="LenseMaterial.invalid && LenseMaterial.touched" class="alert alert-danger">
+              <div *ngIf="LenseMaterial.errors.required">
+                please enter Lense Material
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <button class="btn btn-primary btn-block">
+          save
+        </button>
+
+        <button class="btn btn-danger btn-block" (click)="delet()">
+          Delete
+        </button>
+      </form>
+
+    </div>
+    <!--
+  <div class="col-6" *ngIf=' title.value'>
+      <div class="card" style="width: 18rem;">
+        <img [src]="imageUrl.value" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{title.value}}</h5>
+          <p class="card-text">{{Catrgory.value}}</p>
+          <div>{{price.value}}</div>
+        </div>
+      </div>
+    </div>
+  -->
+  </div>
+</div>

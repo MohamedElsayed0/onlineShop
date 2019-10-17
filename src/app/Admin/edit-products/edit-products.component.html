@@ -1,0 +1,287 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-6">
+
+      <form #formMobile='ngForm' (ngSubmit)="save(formMobile.value)">
+        <!--title-->
+        <div class="form-group">
+
+          <label for="title">Title</label>
+          <input class="form-control" type="text" name="title" [(ngModel)]='product.title' #title="ngModel" required
+            minlength="3">
+        </div>
+        <!--price-->
+        <div class="form-group">
+          <label for="price">price</label>
+          <input class="form-control" type="text" name="price" [(ngModel)]='product.price' #price="ngModel" required
+            [min]="0">
+        </div>
+        <!--Catrgory-->
+        <div class="form-group">
+          <label for="Catrgory">Catrgory</label>
+          <select name="Catrgory" class="form-control" [(ngModel)]='product.Catrgory' #Catrgory="ngModel" required>
+            <option *ngFor="let catg of Category$ | async" [value]="catg.name">
+              {{catg.name}}
+            </option>
+          </select>
+        </div>
+        <!--imageUrl-->
+        <div class="form-group">
+          <label for="imageUrl">imageUrl</label>
+          <input class="form-control" type="text" name="imageUrl" [(ngModel)]="product.imageUrl" #imageUrl="ngModel"
+            required url>
+        </div>
+        <!--imageUrl1-->
+        <div class="form-group">
+          <label for="imageUrl1">imageUrl 1</label>
+          <input class="form-control" type="text" name="imageUrl1" [(ngModel)]="product.imageUrl1">
+        </div>
+        <!--imageUrl2-->
+        <div class="form-group">
+          <label for=" imageUrl2">imageUrl 2</label>
+          <input class="form-control" type="text" name="imageUrl2" [(ngModel)]="product.imageUrl2">
+        </div>
+        <!--color-->
+
+        <div class="form-group">
+          <label for="color">color</label>
+          <input class="form-control" type="text" name="color" [(ngModel)]="product.color">
+
+        </div>
+        <!--Brand-->
+        <div class="form-group">
+          <label for="Brand">Brand</label>
+          <input class="form-control" type="text" name="Brand" [(ngModel)]="product.Brand" #Brand="ngModel" required>
+        </div>
+        <!--Operating System-->
+        <div class="form-group">
+          <label for="Operating">Operating System</label>
+          <input class="form-control" type="text" name="operatingSystem" [(ngModel)]="product.operatingSystem"
+            #operatingSystem="ngModel" required>
+        </div>
+        <!--Storage-->
+        <div class="form-group">
+          <label for="Storage">Storage Capacity</label>
+          <input class="form-control" type="text" name="storageCapacity" [(ngModel)]="product.storageCapacity"
+            #storageCapacity="ngModel" required>
+        </div>
+        <!--NumberOfSIM-->
+        <div class="form-group">
+          <label for="NumberOfSIM">Number Of SIM</label>
+          <input class="form-control" type="text" name="numberSIM" [(ngModel)]="product.numberSIM" #numberSIM="ngModel"
+            required>
+        </div>
+        <!--Network-->
+        <div class="form-group">
+          <label for="Network">Cellular Network Technology</label>
+          <input class="form-control" type="text" name="networkTechnology" [(ngModel)]="product.networkTechnology"
+            #networkTechnology="ngModel" required>
+        </div>
+        <!--Battery-->
+        <div class="form-group">
+          <label for="Battery">Battery Capacity in mAh</label>
+          <input class="form-control" type="text" name="battery" [(ngModel)]="product.battery" #battery="ngModel"
+            required>
+        </div>
+        <!--Front Camera-->
+        <div class="form-group">
+          <label for="FrontCamera">Front Camera</label>
+          <input class="form-control" type="text" name="frontCamera" [(ngModel)]="product.frontCamera"
+            #frontCamera="ngModel" required>
+        </div>
+        <!--Back Camera-->
+        <div class="form-group">
+          <label for="BackCamera">Back Camera</label>
+          <input class="form-control" type="text" name="backCamera" [(ngModel)]="product.backCamera"
+            #backCamera="ngModel" required>
+        </div>
+        <!--MemoryRAM-->
+        <div class="form-group">
+          <label for="MemoryRAM">Memory RAM</label>
+          <input class="form-control" type="text" name="memoryRam" [(ngModel)]="product.memoryRam" #memoryRam="ngModel"
+            required>
+        </div>
+        <!--for lap top-->
+        <!--weight in KGs-->
+        <div class="form-group">
+          <label for="weight">weight in KGs</label>
+          <input class="form-control" type="text" name="weight" [(ngModel)]="product.weight" #weight="ngModel" required>
+        </div>
+        <!--Processor Type-->
+        <div class="form-group">
+          <label for="Processor">Processor Type</label>
+          <input class="form-control" type="text" name="Processor" [(ngModel)]="product.Processor" #Processor="ngModel"
+            required>
+        </div>
+        <!--Hard Disk Interface-->
+        <div class="form-group">
+          <label for="HardDisk">Hard Disk Interface</label>
+          <input class="form-control" type="text" name="HardDisk" [(ngModel)]="product.HardDisk" #HardDisk="ngModel"
+            required>
+        </div>
+        <!--Display Size (Inch)-->
+        <div class="form-group">
+          <label for="Display">Display Size (Inch)</label>
+          <input class="form-control" type="text" name="Display" [(ngModel)]="product.Display" #Display="ngModel"
+            required>
+        </div>
+        <!--Touch screen-->
+        <div class="form-group">
+          <label for="Touchscreen">Touch screen</label>
+          <input class="form-control" type="text" name="Touchscreen" [(ngModel)]="product.Touchscreen"
+            #Touchscreen="ngModel" required>
+        </div>
+        <!--Keyboard Languages-->
+        <div class="form-group">
+          <label for="Keyboard">Keyboard Languages</label>
+          <input class="form-control" type="text" name="Keyboard" [(ngModel)]="product.Keyboard" #Keyboard="ngModel"
+            required>
+        </div>
+        <!--Water resistant-->
+        <div class="form-group">
+          <label for="WaterResistant">Water resistant</label>
+          <input class="form-control" type="text" name="WaterResistant" [(ngModel)]="product.WaterResistant"
+            #WaterResistant="ngModel" required>
+        </div>
+        <!--Water resistant depth-->
+        <div class="form-group">
+          <label for="WaterResistantDepth">Water resistant depth</label>
+          <input class="form-control" type="text" name="WaterResistantDepth" [(ngModel)]="product.WaterResistantDepth"
+            #WaterResistantDepth="ngModel" required>
+        </div>
+        <!--Band Color-->
+        <div class="form-group">
+          <label for="bandColor"> Band Color</label>
+          <input class="form-control" type="text" name="bandColor" [(ngModel)]="product.bandColor" #bandColor="ngModel"
+            required>
+        </div>
+        <!--Movement Type -->
+        <div class="form-group">
+          <label for="MovementType"> Movement Type</label>
+          <input class="form-control" type="text" name="MovementType" [(ngModel)]="product.MovementType"
+            #MovementType="ngModel" required>
+        </div>
+        <!--Band Material -->
+        <div class="form-group">
+          <label for="BandMaterial"> Band Material </label>
+          <input class="form-control" type="text" name="BandMaterial" [(ngModel)]="product.BandMaterial"
+            #BandMaterial="ngModel" required>
+        </div>
+
+        <!--Targeted Group -->
+        <div class="form-group">
+          <label for="TargetedGroup"> Targeted Group </label>
+          <input class="form-control" type="text" name="TargetedGroup" [(ngModel)]="product.TargetedGroup"
+            #TargetedGroup="ngModel" required>
+        </div>
+
+        <!--Type -->
+        <div class="form-group">
+          <label for="Type"> Type </label>
+          <input class="form-control" type="text" name="Type" [(ngModel)]="product.Type" #Type="ngModel" required>
+        </div>
+
+        <!--Dial Color -->
+        <div class="form-group">
+          <label for="DialColor"> Dial Color </label>
+          <input class="form-control" type="text" name="DialColor" [(ngModel)]="product.DialColor" #DialColor="ngModel"
+            required>
+        </div>
+
+        <!--Manufacturer Number-->
+        <div class="form-group">
+          <label for="ManufacturerNumber">Manufacturer Number</label>
+          <input class="form-control" type="text" name="ManufacturerNumber" [(ngModel)]="product.ManufacturerNumber"
+            #ManufacturerNumber="ngModel" required>
+        </div>
+        <!--Camera Size-->
+        <div class="form-group">
+          <label for="camSize">Size</label>
+          <input class="form-control" type="text" name="camSize" [(ngModel)]="product.camSize" #camSize="ngModel"
+            required>
+        </div>
+        <!--Digital Camera Type-->
+        <div class="form-group">
+          <label for="DigitalCameraType">Digital Camera Type</label>
+          <input class="form-control" type="text" name="DigitalCameraType" [(ngModel)]="product.DigitalCameraType"
+            #DigitalCameraType="ngModel" required>
+        </div>
+        <!--Model Number-->
+        <div class="form-group">
+          <label for="ModelNumber">Model Number</label>
+          <input class="form-control" type="text" name="ModelNumber" [(ngModel)]="product.ModelNumber"
+            #ModelNumber="ngModel" required>
+        </div>
+        <!--Model Name-->
+        <div class="form-group">
+          <label for="ModelName">Model Name</label>
+          <input class="form-control" type="text" name="ModelName" [(ngModel)]="product.ModelName" #ModelName="ngModel"
+            required>
+        </div>
+        <!--Style-->
+        <div class="form-group">
+          <label for="Style">Style</label>
+          <input class="form-control" type="text" name="Style" [(ngModel)]="product.Style" #Style="ngModel" required>
+        </div>
+        <!--Megapixel-->
+        <div class="form-group">
+          <label for="Megapixel">Megapixel</label>
+          <input class="form-control" type="text" name="Megapixel" [(ngModel)]="product.Megapixel" #Megapixel="ngModel"
+            required>
+        </div>
+        <!--Package height-->
+        <div class="form-group">
+          <label for="Packageheight">Package height</label>
+          <input class="form-control" type="text" name="height" [(ngModel)]="product.height" #height="ngModel" required>
+        </div>
+
+        <!--Power Source -->
+        <div class="form-group">
+          <label for="PowerSource"> Power Source </label>
+          <input class="form-control" type="text" name="PowerSource" [(ngModel)]="product.PowerSource"
+            #PowerSource="ngModel" required>
+        </div>
+        <!--Lens Width -->
+        <div class="form-group">
+          <label for="LensWidth"> Lens Width </label>
+          <input class="form-control" type="text" name="LensWidth" [(ngModel)]="product.LensWidth" #LensWidth="ngModel"
+            required>
+        </div>
+        <!--Frame Material -->
+        <div class="form-group">
+          <label for="FrameMaterial"> Frame Material </label>
+          <input class="form-control" type="text" name="FrameMaterial" [(ngModel)]="product.FrameMaterial"
+            #FrameMaterial="ngModel" required>
+        </div>
+        <!--Lense Material -->
+        <div class="form-group">
+          <label for="LenseMaterial"> Lense Material </label>
+          <input class="form-control" type="text" name="LenseMaterial" [(ngModel)]="product.LenseMaterial"
+            #LenseMaterial="ngModel" required>
+        </div>
+        <!--Total Size-->
+        <div class="form-group">
+          <label for="TotalSize">Total Size</label>
+          <input class="form-control" type="text" name="TotalSize" [(ngModel)]="product.TotalSize" #TotalSize="ngModel"
+            required>
+        </div>
+        <!--Description-->
+        <div class="form-group">
+          <label for="Description">Description</label>
+          <textarea class="form-control" type="text" name="description" [(ngModel)]="product.description"
+            #description="ngModel" required>
+              </textarea>
+         </div>
+
+        <button class="btn btn-primary">
+          save
+        </button>
+
+        <button class="btn btn-danger " (click)="delet()">
+          Delete
+        </button>
+
+      </form>
+    </div>
+  </div>
+</div>

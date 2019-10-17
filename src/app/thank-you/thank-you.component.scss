@@ -1,0 +1,30 @@
+.secondRow{
+    .displayOrderData{
+        font-size: 12px;
+    }
+}
+
+.fontREsponsev{
+    font-size:40px;
+    font-weight: bold
+}
+.img{
+    max-height: 120px;
+    max-width: 80px;
+    text-align: center;
+    img{
+        max-height: 110px;
+    }
+}
+@media (max-width : 786px) {
+    .fontREsponsev{font-size: 30px;}
+}
+@media (max-width : 425px) {
+    .fontREsponsev{font-size: 15px;}
+}
+@media (max-width : 375px) {
+    .fontREsponsev{font-size: 13px;}
+}
+@media (max-width : 320px) {
+    .fontREsponsev{font-size: 11px;}
+}

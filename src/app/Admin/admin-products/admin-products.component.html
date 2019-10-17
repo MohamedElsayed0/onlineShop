@@ -1,0 +1,34 @@
+<p>
+  <a class="btn btn-primary" routerLink="/new-products">
+    New products
+  </a>
+</p>
+
+<p>
+  <input type="text" 
+         class="form-control" 
+         placeholder="Search......." 
+         #Query 
+         (keyup)="filter(Query.value)">
+</p>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Price</th>
+          <th scope="col">Edit</th>
+      </tr> 
+    </thead>
+    <tbody>
+      <tr *ngFor=" let product of fillterProduct ">
+        <td> {{product.payload.val().title}} </td>
+        <td> {{product.payload.val().price|currency:" EGP ":"symbol"}} </td>
+        <td>
+          <a [routerLink]="['/edite-products/',product.key]">Edit</a>
+        </td>
+      </tr>
+    </tbody>
+  
+  
+    
+  </table>

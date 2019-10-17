@@ -1,0 +1,228 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 row justify-content-center">
+      <div class="col-lg-8 col-12">
+        <form #form2 ='ngForm' (ngSubmit)="signUp(form2.value)" class="row">
+
+
+
+          <div class="form-group col-lg-6 col-12">
+              <label for="exampleInputEmail1">Frist Name</label>
+              <input name="fristname" 
+                     class="form-control"  
+                     placeholder="fristname" 
+                     required ngModel #fristname = 'ngModel'>
+        
+                     <div *ngIf="fristname.invalid && fristname.touched" class="alert alert-danger">
+                            <div *ngIf="fristname.errors.required">
+                              please enter your frist name
+                            </div> 
+                     </div>
+            </div>
+
+
+
+
+
+            <div class="form-group col-lg-6 col-12">
+                <label for="exampleInputEmail1">Last Name</label>
+                <input name="lastname" 
+                       class="form-control"  
+                       placeholder="lastname" 
+                       required ngModel #lastname='ngModel'>
+          
+                       <div *ngIf="lastname.invalid && lastname.touched" class="alert alert-danger">
+                              <div *ngIf="lastname.errors.required">
+                                please enter your frist name
+                              </div>
+                       </div>
+              </div>
+      
+            
+
+
+          <div class="form-group col-12 ">
+            <label for="exampleInputEmail1">Email address</label>
+            <input name="email" 
+                   class="form-control"  
+                   placeholder="Enter email" 
+                   required ngModel #email='ngModel' email>
+      
+                   <div *ngIf="email.invalid && email.touched" class="alert alert-danger">
+                          <div *ngIf="email.errors.required">
+                            please enter your email
+                          </div>
+                          <div *ngIf="email.errors.email">
+                                  please enter a valid email like (name@example.com)
+                          </div>
+                   </div>
+          </div>
+
+          <div class="form-group col-lg-6 col-12">
+            <label for="exampleInputPassword1">Password</label>
+            <input name="password" 
+                   type="password"
+                   class="form-control" 
+                   placeholder="Password" required ngModel #password='ngModel' >
+                   
+                   <div *ngIf="password.invalid && password.touched" class="alert alert-danger">
+      
+                          <div *ngIf="password.errors.required">
+                            please enter your password
+                          </div>
+                   </div>
+          </div>
+
+
+
+          <div class="form-group  col-lg-6 col-12">
+              <label for="exampleInputPassword1">Confirm Password</label>
+              <input name="confirmpassword" 
+                     type="password" 
+                     class="form-control" 
+                     placeholder="confirmpassword" required ngModel #confirmpassword='ngModel'>
+                     
+                     <div *ngIf="confirmpassword.invalid && confirmpassword.touched" class="alert alert-danger">
+                            <div *ngIf="confirmpassword.errors.required">
+                              please enter your confirmpassword
+                            </div>
+
+                     </div>
+
+                    <div *ngIf="confirmpassword.touched && confirmpassword.value !== password.value" class="alert alert-danger">
+                      confirmpassword not equal password
+                   </div>
+            </div>
+
+            
+
+            <div class="form-group col-12">
+                <label for="country">Country</label>
+                <input name="country" 
+                       type="text" 
+                       class="form-control" 
+                       placeholder="Country" required ngModel #country='ngModel'>
+                       
+                       <div *ngIf="country.invalid && country.touched" class="alert alert-danger">
+          
+                              <div *ngIf="country.errors.required">
+                                please enter your Country
+                              </div>
+                       </div>
+            </div>
+
+            <div class="form-group col-12">
+                <label for="city"> City </label>
+                <input name="city" 
+                       type="text" 
+                       class="form-control" 
+                       placeholder="City" required ngModel #city ='ngModel'>
+                       
+                       <div *ngIf="city.invalid && city.touched" class="alert alert-danger">
+          
+                              <div *ngIf="city.errors.required">
+                                please enter your City 
+                              </div>
+                       </div>
+            </div>
+
+            <div class="form-group col-12">
+                <label for="area"> Area </label>
+                <input name="area" 
+                       type="text" 
+                       class="form-control" 
+                       placeholder="Area" required ngModel #area ='ngModel'>
+                       
+                       <div *ngIf="area.invalid && area.touched" class="alert alert-danger">
+          
+                              <div *ngIf="area.errors.required">
+                                please enter your area 
+                              </div>
+                       </div>
+            </div>
+
+            <div class="form-group col-12">
+                <label for="Street Name/No."> Street Name/No. </label>
+                <input name="streetName" 
+                       type="text" 
+                       class="form-control" 
+                       placeholder="Street Name/No" required ngModel #streetName ='ngModel'>
+                       
+                       <div *ngIf="streetName.invalid && streetName.touched" class="alert alert-danger">
+          
+                              <div *ngIf="streetName.errors.required">
+                                please enter your Street Name/No. 
+                              </div>
+                       </div>
+            </div>
+
+            <div class="form-group col-12">
+                <label for="Building Name/No."> Building Name/No.   </label>
+                <input name="buildingName" 
+                       type="text" 
+                       class="form-control" 
+                       placeholder="Street Name/No" required ngModel #buildingName ='ngModel'>
+                       
+                       <div *ngIf="buildingName.invalid && buildingName.touched" class="alert alert-danger">
+          
+                              <div *ngIf="buildingName.errors.required">
+                                please enter your Building Name/No. 
+                              </div>
+                       </div>
+            </div>
+
+
+            <div class="form-group col-12">
+                <label for="Mobile">Mobile</label>
+                <input name="mobile" type="number" 
+                       class="form-control" 
+                       placeholder="mobile" required ngModel #mobile='ngModel'>
+                       
+                       <div *ngIf="mobile.invalid && mobile.touched" class="alert alert-danger">
+          
+                              <div *ngIf="mobile.errors.required">
+                                please enter your Mobile number
+                              </div>
+                       </div>
+              </div>
+              <div class="form-group col-lg-6 col-12">
+                  <label for="Mobile">Uoload your photo</label>
+                  <div class="input-group mb-3">
+                      <div class="custom-file">
+                        <input type="file" 
+                               name="photoURL" 
+                               class="custom-file-input" 
+                               id="inputGroupFile01" 
+                               aria-describedby="inputGroupFileAddon01" 
+                               required ngModel #photoURL='ngModel' (change)='uploadPhoto($event)'>
+                        <label class="custom-file-label"for="inputGroupFile01" >Choose file</label>
+                      </div>
+                    </div>
+
+                       <div *ngIf="photoURL.invalid && photoURL.touched" class="alert alert-danger">
+          
+                              <div *ngIf="photoURL.errors.required || userServ.photo ==='' ">
+                                please Upload your photo
+                              </div>
+                       </div>
+
+                       <div class="alert alert-danger" *ngIf="  photoURL.touched && userServ.photo ==='' ">
+                          please wait to ... updating your Photo
+                      </div>
+              </div> 
+
+              <div class="col-lg-6 col-12 ">
+                <div class="uploaPhoto rounded-circle" *ngIf="userServ.photo as photo">
+                  <img class="" [src]="photo" alt="your photo">
+                </div>
+              </div>
+              <span class="alert alert-danger" *ngIf="errorMessage">
+                {{errorMessage}}
+              </span>
+          <button [disabled]='form2.invalid || confirmpassword.value !== password.value || userServ.photo === ""' type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+       
+      </div>
+    </div>
+  </div>
+</div>

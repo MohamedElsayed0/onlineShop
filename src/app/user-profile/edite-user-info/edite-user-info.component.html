@@ -1,0 +1,166 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 row justify-content-center">
+      <div class="col-lg-8 col-12">
+        <form #form2 ='ngForm' (ngSubmit)="update(form2.value)" class="row">
+
+
+
+          <div class="form-group col-lg-6 col-12">
+              <label for="exampleInputEmail1">Frist Name</label>
+              <input name="fristname" 
+                     class="form-control"  
+                     placeholder="fristname" 
+                     [(ngModel)]='userInformation.fristname' 
+                     required ngModel #fristname = 'ngModel'>
+        
+                     <div *ngIf="fristname.invalid && fristname.touched" class="alert alert-danger">
+                            <div *ngIf="fristname.errors.required">
+                              please enter your frist name
+                            </div> 
+                     </div>
+            </div>
+
+            <div class="form-group col-lg-6 col-12">
+                <label for="exampleInputEmail1">Last Name</label>
+                <input name="lastname" 
+                       class="form-control"  
+                       placeholder="lastName" 
+                       [(ngModel)]='userInformation.lastName'   
+                       required ngModel #lastname='ngModel'>
+          
+                       <div *ngIf="lastname.invalid && lastname.touched" class="alert alert-danger">
+                              <div *ngIf="lastname.errors.required">
+                                please enter your frist name
+                              </div>
+                       </div>
+              </div>
+      
+            
+
+
+          <div class="form-group col-12 ">
+            <label for="exampleInputEmail1">Email address</label>
+            <input name="email" 
+                   class="form-control"  
+                   placeholder="Enter email" 
+                   [(ngModel)]='userInformation.email' 
+                   required ngModel #email='ngModel' email>
+      
+                   <div *ngIf="email.invalid && email.touched" class="alert alert-danger">
+                          <div *ngIf="email.errors.required">
+                            please enter your email
+                          </div>
+                          <div *ngIf="email.errors.email">
+                                  please enter a valid email like (name@example.com)
+                          </div>
+                   </div>
+          </div>            
+
+            <div class="form-group col-12">
+                <label for="country">Country</label>
+                <input name="country" 
+                       type="text" 
+                       class="form-control" 
+                       [(ngModel)]='userInformation.country' 
+                       placeholder="Country" required ngModel #country='ngModel'>
+                       
+                       <div *ngIf="country.invalid && country.touched" class="alert alert-danger">
+          
+                              <div *ngIf="country.errors.required">
+                                please enter your Country
+                              </div>
+                       </div>
+            </div>
+
+            <div class="form-group col-12">
+                <label for="city"> City </label>
+                <input name="city" 
+                       type="text" 
+                       class="form-control" 
+                       [(ngModel)]='userInformation.city' 
+                       placeholder="City" required ngModel #city ='ngModel'>
+                       
+                       <div *ngIf="city.invalid && city.touched" class="alert alert-danger">
+          
+                              <div *ngIf="city.errors.required">
+                                please enter your City 
+                              </div>
+                       </div>
+            </div>
+
+            <div class="form-group col-12">
+                <label for="area"> Area </label>
+                <input name="area" 
+                       type="text" 
+                       class="form-control" 
+                       [(ngModel)]='userInformation.area' 
+                       placeholder="Area" required ngModel #area ='ngModel'>
+                       
+                       <div *ngIf="area.invalid && area.touched" class="alert alert-danger">
+          
+                              <div *ngIf="area.errors.required">
+                                please enter your area 
+                              </div>
+                       </div>
+            </div>
+
+            <div class="form-group col-12">
+                <label for="Street Name/No."> Street Name/No. </label>
+                <input name="streetName" 
+                       type="text" 
+                       class="form-control" 
+                       [(ngModel)]='userInformation.streetName' 
+                       placeholder="Street Name/No" required ngModel #streetName ='ngModel'>
+                       
+                       <div *ngIf="streetName.invalid && streetName.touched" class="alert alert-danger">
+          
+                              <div *ngIf="streetName.errors.required">
+                                please enter your Street Name/No. 
+                              </div>
+                       </div>
+            </div>
+
+            <div class="form-group col-12">
+                <label for="Building Name/No."> Building Name/No.   </label>
+                <input name="buildingName" 
+                       type="text" 
+                       class="form-control" 
+                       [(ngModel)]='userInformation.buildingName' 
+                       placeholder="Street Name/No" required ngModel #buildingName ='ngModel'>
+                       
+                       <div *ngIf="buildingName.invalid && buildingName.touched" class="alert alert-danger">
+          
+                              <div *ngIf="buildingName.errors.required">
+                                please enter your Building Name/No. 
+                              </div>
+                       </div>
+            </div>
+
+
+            <div class="form-group col-12">
+                <label for="Mobile">Mobile</label>
+                <input name="mobile" type="number" 
+                       class="form-control" 
+                       [(ngModel)]='userInformation.mobile' 
+                       placeholder="mobile" required ngModel #mobile='ngModel'>
+                       
+                       <div *ngIf="mobile.invalid && mobile.touched" class="alert alert-danger">
+          
+                              <div *ngIf="mobile.errors.required">
+                                please enter your Mobile number
+                              </div>
+                       </div>
+              </div>
+              
+
+          <button [disabled]='form2.invalid' type="submit" class="btn btn-primary btn-block">Submit</button>
+          <span *ngIf="errorMessage">
+            {{errorMessage}}
+          </span>
+        </form>
+       
+      </div>
+    </div>
+  </div>
+</div>
